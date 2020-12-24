@@ -2,27 +2,27 @@ package com.company.shapes;
 
 import java.awt.*;
 
-public class Square implements Shape {
+public class Circle implements Shape{
 
-    private int side = 6; //default value
-    private Color color = Color.CYAN; //default value
+    private int radius = 5; //default values
+    private Color color = Color.BLUE; //default values
 
-    public int getSide() {
-        return side;
+    public Circle(int radius, Color color) {
+        this.radius = radius;
+        this.color = color;
     }
 
-    public Square(int side, Color color) {
-        this.side = side;
-        this.color = color;
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 
     @Override
     public Color getColor() {
         return color;
-    }
-
-    public void setSide(int side) {
-        this.side = side;
     }
 
     public void setColor(Color color) {
@@ -36,14 +36,14 @@ public class Square implements Shape {
 
     @Override
     public double getArea() {
-        return side*side;
+        return Math.PI * radius * radius;
     }
 
     @Override
     public String toString() {
-        return "Фигура: квадрат" +
+        return "Фигура: круг" +
                 ", площадь= " + getArea() + " кв. ед." +
-                ", длина стороны= " + getSide() + " ед." +
+                ", радиус= " + getRadius() + " ед." +
                 ", цвет= " + getColor();
     }
 }

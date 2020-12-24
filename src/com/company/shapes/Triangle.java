@@ -4,12 +4,14 @@ import java.awt.*;
 
 public class Triangle implements Shape {
 
-    private double side1 = 3., side2 = 4., side3 = 5.; //default values
-    private Color color = Color.ORANGE; //default value
+    private double side1, side2, side3;
+    private Color color;
 
     public Triangle(double side1, double side2, double side3, Color color) {
         if (side1 + side2 < side3 || side2 + side3 < side2 || side3 + side2 < side1)
             throw new IllegalArgumentException("Sides are not valid!");
+        if (side1 <= 0 || side2 <= 0|| side3 <= 0)
+            throw new IllegalArgumentException("Sides should be greater then 0");
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
@@ -73,6 +75,6 @@ public class Triangle implements Shape {
         return "Фигура: треугольник" +
                 ", площадь= " + getArea() + " кв. ед." +
                 ", гипотенуза= " + getHypotenuse() + " ед." +
-                ", цвет= " + getColor();
+                ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }
 }

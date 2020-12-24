@@ -4,10 +4,12 @@ import java.awt.*;
 
 public class Circle implements Shape{
 
-    private int radius = 5; //default values
-    private Color color = Color.BLUE; //default values
+    private int radius;
+    private Color color;
 
     public Circle(int radius, Color color) {
+        if (radius <= 0)
+            throw new IllegalArgumentException("Radius should be greater then 0");
         this.radius = radius;
         this.color = color;
     }
@@ -44,6 +46,6 @@ public class Circle implements Shape{
         return "Фигура: круг" +
                 ", площадь= " + getArea() + " кв. ед." +
                 ", радиус= " + getRadius() + " ед." +
-                ", цвет= " + getColor();
+                ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }
 }

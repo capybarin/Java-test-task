@@ -4,13 +4,13 @@ import java.awt.*;
 
 public class Trapezium implements Shape {
 
-    private int lowerBase = 5, upperBase = 8; //default value
-    private int h = 4; //default value
-    private Color color = Color.PINK; //default value
+    private int lowerBase, upperBase;
+    private int h;
+    private Color color;
 
     public Trapezium(int lowerBase, int upperBase, int h, Color color) {
-        if (lowerBase > upperBase)
-            throw new IllegalArgumentException("Lower base cannot be greater then upper base");
+        if (lowerBase <= 0 || h <= 0)
+            throw new IllegalArgumentException("Lower base and/or H should be greater then 0");
         this.lowerBase = lowerBase;
         this.upperBase = upperBase;
         this.h = h;
@@ -65,6 +65,6 @@ public class Trapezium implements Shape {
         return "Фигура: трапеция" +
                 ", площадь= " + getArea() + " кв. ед." +
                 ", длина высоты= " + getH() + " ед." +
-                ", цвет= " + getColor();
+                ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }
 }

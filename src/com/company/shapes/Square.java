@@ -4,14 +4,16 @@ import java.awt.*;
 
 public class Square implements Shape {
 
-    private int side = 6; //default value
-    private Color color = Color.CYAN; //default value
+    private int side;
+    private Color color;
 
     public int getSide() {
         return side;
     }
 
     public Square(int side, Color color) {
+        if (side <= 0)
+            throw new IllegalArgumentException("Side should be greater then 0");
         this.side = side;
         this.color = color;
     }
@@ -44,6 +46,6 @@ public class Square implements Shape {
         return "Фигура: квадрат" +
                 ", площадь= " + getArea() + " кв. ед." +
                 ", длина стороны= " + getSide() + " ед." +
-                ", цвет= " + getColor();
+                ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }
 }

@@ -1,6 +1,9 @@
 package com.company.shapes;
 
+import com.company.drawers.ShapeDrawer;
+
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class Circle implements Shape{
 
@@ -33,7 +36,7 @@ public class Circle implements Shape{
 
     @Override
     public void draw() {
-        //some method to draw the shape
+        new ShapeDrawer();
     }
 
     @Override
@@ -44,7 +47,7 @@ public class Circle implements Shape{
     @Override
     public String toString() {
         return "Фигура: круг" +
-                ", площадь= " + getArea() + " кв. ед." +
+                ", площадь= " + new DecimalFormat("#.##").format(getArea()) + " кв. ед." +
                 ", радиус= " + getRadius() + " ед." +
                 ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }

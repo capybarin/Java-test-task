@@ -1,6 +1,9 @@
 package com.company.shapes;
 
+import com.company.drawers.ShapeDrawer;
+
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class Triangle implements Shape {
 
@@ -53,7 +56,7 @@ public class Triangle implements Shape {
 
     @Override
     public void draw() {
-        //some method to draw the shape
+        new ShapeDrawer();
     }
 
     @Override
@@ -73,7 +76,7 @@ public class Triangle implements Shape {
     @Override
     public String toString() {
         return "Фигура: треугольник" +
-                ", площадь= " + getArea() + " кв. ед." +
+                ", площадь= " + new DecimalFormat("#.##").format(getArea()) + " кв. ед." +
                 ", гипотенуза= " + getHypotenuse() + " ед." +
                 ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }

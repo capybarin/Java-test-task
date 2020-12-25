@@ -1,6 +1,9 @@
 package com.company.shapes;
 
+import com.company.drawers.ShapeDrawer;
+
 import java.awt.*;
+import java.text.DecimalFormat;
 
 public class Square implements Shape {
 
@@ -33,7 +36,7 @@ public class Square implements Shape {
 
     @Override
     public void draw() {
-        //some method to draw the shape
+        new ShapeDrawer();
     }
 
     @Override
@@ -44,7 +47,7 @@ public class Square implements Shape {
     @Override
     public String toString() {
         return "Фигура: квадрат" +
-                ", площадь= " + getArea() + " кв. ед." +
+                ", площадь= " + new DecimalFormat("#.##").format(getArea()) + " кв. ед." +
                 ", длина стороны= " + getSide() + " ед." +
                 ", цвет= " + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue();
     }

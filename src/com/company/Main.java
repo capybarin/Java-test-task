@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.shapes.Circle;
+import com.company.shapes.Shape;
 import com.company.shapes.Square;
 import com.company.shapes.Trapezium;
 import com.company.shapes.Triangle;
@@ -11,46 +12,33 @@ import java.util.List;
 
 public class Main {
 
-    public final static int MAX_NUMBER_OF_SHAPES = 5;
+    public final static int MAX_NUMBER_OF_SHAPES = 20;
 
     public static void main(String[] args) {
 
-        List<Square> squares = new ArrayList<>();
-        List<Circle> circles = new ArrayList<>();
-        List<Trapezium> trapeziums = new ArrayList<>();
-        List<Triangle> triangles = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
+        Color color;
 
         for (int i = 0; i < MAX_NUMBER_OF_SHAPES ; i++) {
-            Color color = Color.CYAN;
-            Square sq = new Square(i+1, color);
-            squares.add(sq);
-        }
-        for (Square sq: squares) {
-            System.out.println(sq.toString());
-        }
-        for (int i = 0; i < MAX_NUMBER_OF_SHAPES ; i++) {
-            Color color = Color.BLUE;
+            color = Color.CYAN;
+            Square square = new Square(i+1, color);
+
+            color = Color.MAGENTA;
             Circle circle = new Circle(i+1, color);
-            circles.add(circle);
-        }
-        for (Circle circle: circles) {
-            System.out.println(circle.toString());
-        }
-        for (int i = 0; i < MAX_NUMBER_OF_SHAPES ; i++) {
-            Color color = Color.ORANGE;
-            Trapezium trapezium = new Trapezium(i+5, i+1, i+2, color);
-            trapeziums.add(trapezium);
-        }
-        for (Trapezium trapezium: trapeziums) {
-            System.out.println(trapezium.toString());
-        }
-        for (int i = 0; i < MAX_NUMBER_OF_SHAPES ; i++) {
-            Color color = Color.MAGENTA;
+
+            color = Color.PINK;
             Triangle triangle = new Triangle(i+3, i+4, i+5, color);
-            triangles.add(triangle);
+
+            color = Color.BLUE;
+            Trapezium trapezium = new Trapezium(i+5, i+2, i+3, color);
+
+            shapes.add(square);
+            shapes.add(circle);
+            shapes.add(triangle);
+            shapes.add(trapezium);
         }
-        for (Triangle triangle: triangles) {
-            System.out.println(triangle.toString());
+        for (Shape shape: shapes) {
+            System.out.println(shape.toString());
         }
     }
 }
